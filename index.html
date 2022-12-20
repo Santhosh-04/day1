@@ -9,15 +9,16 @@
 </head>
 <body class="body">
 <script>
-    function validateForm()
+function validateForm()
 {
    var p1=document.form1.v1.value;
    var p2=document.form1.v2.value;
   var name=document.form1.n1.value;
   var u1=document.form1.user.value;
    if(name==null || name==""){
-      alert("Firstname can't be empty");
+    alert("Firstname can't be empty");
        return false;
+  
    }
    var m=isNaN(name)
    if(m==false)
@@ -43,12 +44,8 @@ if(p2==null || p2==""){
     alert("Password can't be empty");
     return false;
 }
-if(p1!=null){
-if(p1.length<6){
-    alert("password should be minimum of 6");
-    return false;
-}
-   else {
+if(p1!=null && p2!=null){
+
     if(p1==p2){
       
          return true;
@@ -57,9 +54,18 @@ if(p1.length<6){
     alert("Password must be same!!")
      return false;
    }
-   }
+   
 }
 }
+function myFunction() {
+  var x = document.getElementById("v1");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+
 </script>
 
     <section class="grid-container">
@@ -78,12 +84,12 @@ if(p1.length<6){
                 <br>            
                 <button>Use my current email address instead</button>
                 <br>               
-                <input type="text" placeholder="Password" name="v1">
-                <input type="text" placeholder="Confirm" name="v2">
+                <input type="password" placeholder="Password" name="v1" id="v1" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}">
+                <input type="password" placeholder="Confirm" name="v2">
                 <br>           
                 <span>Use 8 or more characters with a mix of letters,numbers & symbols</span>
                 <br>
-                <input type="checkbox" >
+                <input type="checkbox"  onclick="myFunction()">
                 <span>Show password</span>
                 <br>
                 <button id="signin">Sign in instead</button>
