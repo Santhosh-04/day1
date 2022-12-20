@@ -4,54 +4,98 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create your Google Account</title>
-    <link rel="stylesheet" href="style1.css">
+    <title>REGISTRATION FORM</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>REGISTRATION FORM</title>
-        <link rel="stylesheet" href="../CSS/formcss.css">
-    </head>
-    <body class="body">
-        <section class="grid-container">
-            <img src="../images/google.jpg" alt="">
-            <br>
-            <section class="grid-element">
-                <form >
-                    <div class="heading" id="heading">Create yout google account</div>
-                   <div class="name"> <input type="text" placeholder="First name">
-                    <input type="text" placeholder="Last name">
-                </div>
-                    <br>   
-                    <input type="text" placeholder="Username">
-                    <br>              
-                    <span id="email">You can use letters,numbers & periods</span>
-                    <br>            
-                    <button>Use my current email address instead</button>
-                    <br>               
-                    <input type="text" placeholder="Password">
-                    <input type="text" placeholder="Confirm">
-                    <br>           
-                    <span>Use 8 or more characters with a mix of letters,numbers & symbols</span>
-                    <br>
-                    <input type="checkbox" >
-                    <span>Show password</span>
-                    <br>
-                    <button id="signin">Sign in instead</button>
-                    <button id="next">Next</button>
-                </form>
-            </section>
-            <section class="grid-element">
-                <img src="../images/account.svg" class="right-section">
-            </section>
-        </section>
-        
-    </body>
+<body class="body">
+<script>
+    function validateForm()
+{
+   var p1=document.form1.v1.value;
+   var p2=document.form1.v2.value;
+  var name=document.form1.n1.value;
+  var u1=document.form1.user.value;
+   if(name==null || name==""){
+       
+       
+       return false;
+       alert("Firstname can't be empty");
+   }
+   var m=isNaN(name)
+   if(m==false)
+   {
+    alert("Name can't be a number");
+    return false;
+   }
+   if(u1==null || u1==""){
+    alert("Username can't be empty");
+    return false;
+   }
+   var atposition=u1.indexOf("@");
+   var dotposition=u1.lastIndexOf(".");
+   if (atposition<1 || dotposition<atposition+2 || dotposition+2>=u1.length){
+alert("Please enter a valid e-mail address \n atpostion:" +atposition+ "\n dotposition:"+dotposition);
+return false;
+}
+if(p1==null || p1==""){
+    alert("Password can't be empty");
+    return false;
+}
+if(p2==null || p2==""){
+    alert("Password can't be empty");
+    return false;
+}
+if(p1!=null){
+if(p1.length<6){
+    alert("password should be minimum of 6");
+    return false;
+}
+   else {
+    if(p1==p2){
       
+         return true;
+   }
+   else{
+    alert("Password must be same!!")
+     return false;
+   }
+   }
+}
+}
+</script>
+
+    <section class="grid-container">
+        <img src="google.webp" alt="" height="200px" width="200px" class="image">
+        <br>
+        <section class="grid-element">
+            <form name="form1" action="http://www.javatpoint.com/javascriptpages/valid.jsp"  onsubmit="return validateForm()" method="post">
+                <div class="heading" id="heading">Create yout google account</div>
+               <div class="name"> <input type="text" placeholder="First name" name="n1">
+                <input type="text" placeholder="Last name">
+            </div>
+                <br>   
+                <input type="text" placeholder="Username" name="user">
+                <br>              
+                <span id="email">You can use letters,numbers & periods</span>
+                <br>            
+                <button>Use my current email address instead</button>
+                <br>               
+                <input type="text" placeholder="Password" name="v1">
+                <input type="text" placeholder="Confirm" name="v2">
+                <br>           
+                <span>Use 8 or more characters with a mix of letters,numbers & symbols</span>
+                <br>
+                <input type="checkbox" >
+                <span>Show password</span>
+                <br>
+                <button id="signin">Sign in instead</button>
+                <input type="submit" value="next">
+            </form>
+        </section>
+        <section class="grid-element">
+            <img src="../images/account.svg" class="right-section">
+        </section>
+    </section>
+    
 </body>
 </html>
