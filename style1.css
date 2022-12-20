@@ -149,4 +149,11 @@ body{
   .side-logo{
     width: 230px;
   }
+  .image{
+    padding-top: 2.7pc;
+    padding-left: 17cm;
+    justify-content: baseline;
+    align-items: flex-end;
+  
+  }
   
